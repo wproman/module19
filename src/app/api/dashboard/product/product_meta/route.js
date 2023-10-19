@@ -6,10 +6,10 @@ export async function POST(req, res) {
     return this.toString();
   };
   //! Single Insert Data
-    try {""
+    try {
       const prisma = new PrismaClient();
       let reqBody = await req.json();
-     let result = await prisma.productMeta({ data: reqBody });
+     let result = await prisma.productmeta({ data: reqBody });
 
       return NextResponse.json({ status: "Success", result: result });
     } catch (err) {
