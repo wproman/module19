@@ -17,3 +17,28 @@ export async function POST(req, res) {
     }
 
 }
+
+export async function PUT(req, res) {
+  BigInt.prototype.toJSON = function () {
+    return this.toString();
+  };
+  //! Single Insert Data
+    try {
+      const prisma = new PrismaClient();
+      
+
+      const result = await prisma.order.aggregate({
+      
+        _count: { id: true }
+     
+  });
+
+      return NextResponse.json({ status: "Success", result: result });
+    } catch (err) {
+      return NextResponse.json({ status: "Fail", result: err.toString() });
+    }
+
+}
+
+
+
