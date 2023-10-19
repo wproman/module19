@@ -9,7 +9,7 @@ export async function POST(req, res) {
     try {
       const prisma = new PrismaClient();
       let reqBody = await req.json();
-     let result = await prisma.product.create({ data: reqBody });
+     let result = await prisma.ProductReview.create({ data: reqBody });
 
       return NextResponse.json({ status: "Success", result: result });
     } catch (err) {

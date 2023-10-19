@@ -8,8 +8,8 @@ export async function POST(req, res) {
   //! Single Insert Data
     try {
       const prisma = new PrismaClient();
-      let reqBody = await req.json();
-     let result = await prisma.productmeta({ data: reqBody });
+      const reqBody = await req.json();
+      const result = await prisma.productMeta({ data: reqBody });
 
       return NextResponse.json({ status: "Success", result: result });
     } catch (err) {
