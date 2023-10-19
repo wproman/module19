@@ -29,7 +29,11 @@ export async function PUT(req, res) {
 
       const result = await prisma.order.aggregate({
       
-        _count: { id: true }
+        _avg: { subTotal: true },
+        _count: { subTotal: true },
+        _max: { subTotal: true },
+        _min: { subTotal: true },
+        _sum: { subTotal: true },
      
   });
 
